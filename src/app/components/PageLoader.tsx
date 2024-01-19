@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { ThreeDots } from "react-loader-spinner";
-// import { handleScroll } from "../../utils/hooks";
 
 export default function PageLoader({
   loader,
@@ -9,10 +8,6 @@ export default function PageLoader({
   loader: boolean;
   loaderText: string;
 }) {
-  // useEffect(() => {
-  //   handleScroll(loader);
-  // }, [loader]);
-
   return (
     <div>
       {loader && (

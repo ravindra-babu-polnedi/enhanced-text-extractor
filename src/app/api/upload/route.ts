@@ -12,14 +12,8 @@ export async function POST(request: NextRequest, response: NextResponse) {
   }
   const bytes = await file?.arrayBuffer();
   const buffer = Buffer.from(bytes);
-  // console.log("buffer", buffer);
-
   const res = await pdf(buffer);
-
-  const numPages = res.numpages;
   const text = res.text;
-
-  // console.log("text", text);
 
   const llm = new OpenAI({
     openAIApiKey: OPENAI_API_KEY,
@@ -30,7 +24,6 @@ export async function POST(request: NextRequest, response: NextResponse) {
     `Identify and capture relevant information such as names, dates, addresses, and any other details present in the text. Return the  extracted key-value pairs  in json as array of objects containing attr_name,attr_value properties with corresponding values .
     :${text}`
   );
-  console.log("resp", resp);
 
   return NextResponse.json({ text: resp });
 }
