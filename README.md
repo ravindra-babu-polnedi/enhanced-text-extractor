@@ -1,8 +1,16 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
 ## Getting Started
 
-First, run the development server:
+First , install dependencies
+
+```
+npm install
+```
+
+```
+create .env.local file in the root folder and add OPENAI_API_KEY ="insert your open api key here"
+```
+
+run the development server:
 
 ```bash
 npm run dev
@@ -13,7 +21,3 @@ pnpm dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-```
-create .env.local file in the root folder and add OPENAI_API_KEY ="insert your open api key here"
-```
