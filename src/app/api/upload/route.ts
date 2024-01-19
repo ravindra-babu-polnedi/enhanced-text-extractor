@@ -2,8 +2,6 @@ import { NextRequest, NextResponse } from "next/server";
 import { OpenAI } from "@langchain/openai";
 import pdf from "pdf-extraction";
 
-// const OPENAI_API_KEY = "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";
-// const OPENAI_API_KEY = "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";
 const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
 
 export async function POST(request: NextRequest, response: NextResponse) {
@@ -14,14 +12,14 @@ export async function POST(request: NextRequest, response: NextResponse) {
   }
   const bytes = await file?.arrayBuffer();
   const buffer = Buffer.from(bytes);
-  console.log("buffer", buffer);
+  // console.log("buffer", buffer);
 
   const res = await pdf(buffer);
 
   const numPages = res.numpages;
   const text = res.text;
-  console.log("numPages", numPages);
-  console.log("text", text);
+
+  // console.log("text", text);
 
   const llm = new OpenAI({
     openAIApiKey: OPENAI_API_KEY,
